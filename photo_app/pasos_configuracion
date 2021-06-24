@@ -1,0 +1,11 @@
+Despues de tener instalado Node:
+
+1. En la carpeta del proyecto, ejecutar comando para crear archivo de configuración del proyecto:
+=>          tsc --init
+2. Crear carpeta "src"
+3. descomentar la propiedad "outDir" en el archivo tsconfig.json, y modificarla para que se direccione a "./dist"
+4. Despues de crear cualquier archivo del proyecto con extensión .ts, ejectutar comando para crear su respectivo archivo .js en la carpeta "dist" (si no existe, se creará sola)
+=>          tsc  
+
+5. Cuando querramos correr los programas, se hace con el comando:
+=>          node dist/"nombrearchivo".ts
