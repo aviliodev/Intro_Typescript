@@ -9,3 +9,6 @@ Despues de tener instalado Node:
 
 5. Cuando querramos correr los programas, se hace con el comando:
 =>          node dist/"nombrearchivo".ts
+
+6. para evitar problemas de que no reconozca funciones más actuales de javascript, 
+   hay que modificar el parámetro "target" del archivo de configuración, y colocar "ES2015"
