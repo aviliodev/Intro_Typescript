@@ -12,3 +12,36 @@ Despues de tener instalado Node:
 
 6. para evitar problemas de que no reconozca funciones más actuales de javascript, 
    hay que modificar el parámetro "target" del archivo de configuración, y colocar "ES2015"
+
+7. Para gregar el soporte de webpack en nuestro proyecto de typescript, empezamos creando un archivo package.jason
+=>       npm init -y
+   Y despues:
+=>       npm install typescript webpack webpack-cli --save-dev
+8. Luego creamos un archivo webpack.config.js con el siguiente contenido:
+module.exports = {
+    mode: 'production',
+    entry: './src/main.ts',
+    devtool: 'inline-source-map',
+    resolve: {
+        extensions: ['.ts', '.js'],
+    },
+    output: {
+        filename: 'bundle.js',
+    }
+}   
+9. En el archivo package.json, en la sección de scripts, se elimina lo que haya ahi y solo se deja:
+"build": "webpack"
+10. Luego instalamos el loader, que permite cargar codigo typescript para la configuración de webpack
+=>       npm install ts-loader --save-dev
+    En el archivo webpack.config.js, agregamos esto despues de devtool:
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      }
+    ]
+  },
+11. Finalmente, para usar webpack y generar un compilado de todo en un archivo bundle.js, ejecutamos:
+=>       npm run build
